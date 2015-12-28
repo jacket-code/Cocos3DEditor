@@ -4,6 +4,8 @@
 #include "CCLuaEngine.h"
 USING_NS_CC;
 
+Sprite* sprite;
+
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
@@ -66,7 +68,7 @@ bool HelloWorld::init()
     this->addChild(label, 1);
 
     // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+    sprite = Sprite::create("HelloWorld.png");
 
     // position the sprite on the center of the screen
     sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -85,9 +87,18 @@ bool HelloWorld::init()
     // lua memo
     // ComponentLua::create( "");
     // LuaEngine::getInstance();
+
+    scheduleUpdate();
+
     return true;
 }
 
+void HelloWorld::update(float delta)
+{
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {

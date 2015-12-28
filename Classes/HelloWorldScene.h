@@ -10,6 +10,8 @@ public:
 
     virtual bool init();
     
+    void update(float delta);
+
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     

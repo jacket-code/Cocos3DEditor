@@ -1,0 +1,3 @@
+[submodule "Classes/MyLibrary"]
+	path = Classes/MyLibrary
+	url = https://github.com/minaka1412/MyLibrary
