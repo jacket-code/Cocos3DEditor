@@ -1,8 +1,11 @@
 
-#include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "Global/DebugSetting.h"
+#include "Global/GlobalDefine.h"
+#include "Scene/MainScene.h"
+#include "./AppDelegate.h"
 
 USING_NS_CC;
+USING_NS_C3E;
 
 AppDelegate::AppDelegate() 
 {
@@ -16,70 +19,74 @@ AppDelegate::~AppDelegate()
 //it will takes effect on all platforms
 void AppDelegate::initGLContextAttrs()
 {
-    //set OpenGL context attributions,now can only set six attributions:
-    //red,green,blue,alpha,depth,stencil
-    GLContextAttrs glContextAttrs = { 8, 8, 8, 8, 24, 8 };
+	//set OpenGL context attributions,now can only set six attributions:
+	//red,green,blue,alpha,depth,stencil
+	GLContextAttrs glContextAttrs = { 8, 8, 8, 8, 24, 8 };
 
-    GLView::setGLContextAttrs( glContextAttrs );
+	GLView::setGLContextAttrs( glContextAttrs );
 }
 
 // If you want to use packages manager to install more packages, 
 // don't modify or remove this function
 static int register_all_packages()
 {
-    return 0; //flag for packages manager
+	return 0; //flag for packages manager
 }
 
 bool AppDelegate::applicationDidFinishLaunching() 
 {
-    // initialize director
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-    const Size designResolutionSize = Size(960, 640);
+	// initialize director
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+	const Size designResolutionSize = Size( DEFAULT_SCREEN_WIDTH, DEFAULT_SCREEN_HEIGHT );
 
-    if( glview == false ) {
+	if( glview == false ) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect( "Cocos3DEditor", Rect( 0, 0, designResolutionSize.width, designResolutionSize.height ));
+		glview = GLViewImpl::createWithRect( "Cocos3DEditor", Rect( 0, 0, designResolutionSize.width, designResolutionSize.height ));
 #else
-        glview = GLViewImpl::create( "Cocos3DEditor" );
+		glview = GLViewImpl::create( "Cocos3DEditor" );
 #endif
-        director->setOpenGLView( glview );
-    }
+		director->setOpenGLView( glview );
+	}
 
-    // turn on display FPS
-    director->setDisplayStats( true );
+	// turn on display FPS
+#ifdef ___DEBUG
+	director->setDisplayStats( true );
+#else
+	director->setDisplayStats( false );
+#endif
 
-    // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval( 1.0 / 60 );
+	// set FPS. the default value is 1.0/60 if you don't call this
+	director->setAnimationInterval( 1.0 / 60 );
 
-    // Set the design resolution
-    glview->setDesignResolutionSize( designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER );
+	// Set the design resolution
+	glview->setDesignResolutionSize( designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER );
 
-    register_all_packages();
+	register_all_packages();
 
-    // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+	// create a scene. it's an autorelease object
+	auto scene = MainScene::createScene();
 
-    // run
-    director->runWithScene( scene );
+	// run
+	director->runWithScene( scene );
 
-    return true;
+	return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() 
 {
-    Director::getInstance()->stopAnimation();
+	Director::getInstance()->stopAnimation();
 
-    // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+	// if you use SimpleAudioEngine, it must be pause
+	// SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() 
 {
-    Director::getInstance()->startAnimation();
+	Director::getInstance()->startAnimation();
 
-    // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+	// if you use SimpleAudioEngine, it must resume here
+	// SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

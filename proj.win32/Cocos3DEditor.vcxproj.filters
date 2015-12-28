@@ -10,6 +10,18 @@
     <Filter Include="Win32">
       <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{65696d0e-6791-4483-a341-d552489b874e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\MyLibrary">
+      <UniqueIdentifier>{65aa0566-9c79-47fe-b250-9391ea583444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Model">
+      <UniqueIdentifier>{bf24a0c3-70c5-49e7-ac27-430f7de0f133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Global">
+      <UniqueIdentifier>{30a4e313-a4d6-41a1-8978-2a9d669c20ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,8 +30,26 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="..\Classes\MyLibrary\MLBasicFunc.cpp">
+      <Filter>Source\MyLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyLibrary\MLCircle.cpp">
+      <Filter>Source\MyLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyLibrary\MLRandom.cpp">
+      <Filter>Source\MyLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scene\MainScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\LoadModel.cpp">
+      <Filter>Source\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyLibrary\MLStringUtility.cpp">
+      <Filter>Source\MyLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Global\FileLoadManager.cpp">
+      <Filter>Source\Global</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +59,38 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>Source</Filter>
+    <ClInclude Include="..\Classes\MyLibrary\MLBasicFunc.h">
+      <Filter>Source\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyLibrary\MLBit.h">
+      <Filter>Source\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyLibrary\MLCircle.h">
+      <Filter>Source\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyLibrary\MLRandom.h">
+      <Filter>Source\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyLibrary\MyLibrary.h">
+      <Filter>Source\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scene\MainScene.h">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Global\DebugSetting.h">
+      <Filter>Source\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Global\GlobalDefine.h">
+      <Filter>Source\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\LoadModel.h">
+      <Filter>Source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyLibrary\MLStringUtility.h">
+      <Filter>Source\MyLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Global\FileLoadManager.h">
+      <Filter>Source\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

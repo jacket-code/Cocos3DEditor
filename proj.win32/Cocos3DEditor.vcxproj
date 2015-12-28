@@ -145,12 +145,28 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Global\FileLoadManager.cpp" />
+    <ClCompile Include="..\Classes\Model\LoadModel.cpp" />
+    <ClCompile Include="..\Classes\MyLibrary\MLBasicFunc.cpp" />
+    <ClCompile Include="..\Classes\MyLibrary\MLCircle.cpp" />
+    <ClCompile Include="..\Classes\MyLibrary\MLRandom.cpp" />
+    <ClCompile Include="..\Classes\MyLibrary\MLStringUtility.cpp" />
+    <ClCompile Include="..\Classes\Scene\MainScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Global\DebugSetting.h" />
+    <ClInclude Include="..\Classes\Global\FileLoadManager.h" />
+    <ClInclude Include="..\Classes\Global\GlobalDefine.h" />
+    <ClInclude Include="..\Classes\Model\LoadModel.h" />
+    <ClInclude Include="..\Classes\MyLibrary\MLBasicFunc.h" />
+    <ClInclude Include="..\Classes\MyLibrary\MLBit.h" />
+    <ClInclude Include="..\Classes\MyLibrary\MLCircle.h" />
+    <ClInclude Include="..\Classes\MyLibrary\MLRandom.h" />
+    <ClInclude Include="..\Classes\MyLibrary\MyLibrary.h" />
+    <ClInclude Include="..\Classes\MyLibrary\MLStringUtility.h" />
+    <ClInclude Include="..\Classes\Scene\MainScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
