@@ -45,7 +45,7 @@ public:
      * KeyCode The key (code).
      * @js NA
      */
-    enum class KeyCode
+    enum KeyCode
     {
         KEY_NONE,
         KEY_PAUSE,
@@ -216,7 +216,8 @@ public:
         KEY_DPAD_DOWN,
         KEY_DPAD_CENTER,
         KEY_ENTER,
-        KEY_PLAY
+        KEY_PLAY,
+        KEY_NUM
     };
     
     /** Constructor.

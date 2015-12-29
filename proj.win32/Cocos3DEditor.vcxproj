@@ -146,6 +146,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Global\FileLoadManager.cpp" />
+    <ClCompile Include="..\Classes\Global\InputLayer.cpp" />
     <ClCompile Include="..\Classes\Model\LoadModel.cpp" />
     <ClCompile Include="..\Classes\MyLibrary\MLBasicFunc.cpp" />
     <ClCompile Include="..\Classes\MyLibrary\MLCircle.cpp" />
@@ -159,6 +160,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Global\DebugSetting.h" />
     <ClInclude Include="..\Classes\Global\FileLoadManager.h" />
     <ClInclude Include="..\Classes\Global\GlobalDefine.h" />
+    <ClInclude Include="..\Classes\Global\InputLayer.h" />
     <ClInclude Include="..\Classes\Model\LoadModel.h" />
     <ClInclude Include="..\Classes\MyLibrary\MLBasicFunc.h" />
     <ClInclude Include="..\Classes\MyLibrary\MLBit.h" />

@@ -51,6 +51,9 @@
     <ClCompile Include="..\Classes\Global\FileLoadManager.cpp">
       <Filter>Source\Global</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Global\InputLayer.cpp">
+      <Filter>Source\Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -90,6 +93,9 @@
       <Filter>Source\MyLibrary</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Global\FileLoadManager.h">
+      <Filter>Source\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Global\InputLayer.h">
       <Filter>Source\Global</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
 
-#include "../Global/GlobalDefine.h"
 #include "../Global/FileLoadManager.h"
+#include "../Global/GlobalDefine.h"
 #include "../Model/LoadModel.h"
 #include "../MyLibrary/MyLibrary.h"
 #include "./MainScene.h"
@@ -8,7 +8,7 @@
 USING_NS_CC;
 USING_NS_C3E;
 
-Scene* MainScene::createScene( void )
+Scene*	MainScene::createScene( void )
 {
 	auto scene = Scene::create();
 	auto layer = MainScene::create();
@@ -24,7 +24,7 @@ MainScene::~MainScene()
 {
 }
 
-bool MainScene::init( void )
+bool	MainScene::init( void )
 {
 	if( !Layer::init() ) { return false; }
 
@@ -36,16 +36,28 @@ bool MainScene::init( void )
 		glView->setFileDropCallback( CC_CALLBACK_2( MainScene::fileDropCallback, this ));
 	}
 
+	_inputLayer = InputLayer::create();
+	addChild( _inputLayer );
+
 	scheduleUpdate();
 
 	return true;
 }
 
-void MainScene::update( float delta )
+void	MainScene::update( float delta )
 {
+	if( _inputLayer->isKeyboradPushDown( KEY_CODE::KEY_ENTER ) == true ) 
+	{
+		log( "enter push" );
+	}
+
+	if( _inputLayer->isKeyboradPushDown( KEY_CODE::KEY_ESCAPE ) == true ) 
+	{
+		log( "esc push" );
+	}
 }
 
-void MainScene::fileDropCallback( int count, const char** paths )
+void	MainScene::fileDropCallback( int count, const char** paths )
 {
 	auto loadManager = FileLoadManager::getInstance();
 	Size visibleSize = Director::getInstance()->getVisibleSize();

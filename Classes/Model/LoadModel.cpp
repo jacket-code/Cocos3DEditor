@@ -23,7 +23,7 @@ LoadModel::~LoadModel()
 	delete p;
 }
 
-bool LoadModel::loadModelData( const string& filePath )
+bool	LoadModel::loadModelData( const string& filePath )
 {
 	string str = MyLibrary::StringUtility::getFileName( filePath );
 	Sprite3D* model = Sprite3D::create( filePath );

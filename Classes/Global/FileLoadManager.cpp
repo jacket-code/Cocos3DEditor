@@ -23,7 +23,7 @@ FileLoadManager::~FileLoadManager()
 {
 }
 
-bool FileLoadManager::LoadFile( const string& filePath )
+bool	FileLoadManager::LoadFile( const string& filePath )
 {
 	string extension = MyLibrary::StringUtility::getExtension( filePath );
 
