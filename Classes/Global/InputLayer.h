@@ -37,7 +37,6 @@ private:
 	bool init( void ) override;
 	void update( float delta ) override;
 
-
 	InputLayer();
 	~InputLayer();
 

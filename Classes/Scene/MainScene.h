@@ -21,10 +21,10 @@ private:
 	bool init( void ) override;
 	void update( float delta );
 
-	void fileDropCallback( int count, const char** paths );
-
 private:
-	InputLayer* _inputLayer;
+	InputLayer*							_inputLayer;
+	cocos2d::Sprite3D*					_selectModel;
+	cocos2d::Vector<cocos2d::Sprite3D*> _modelArray;
 };
 
 }

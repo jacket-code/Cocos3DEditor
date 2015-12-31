@@ -21,7 +21,9 @@ public:
 	}
 
 	~FileLoadManager();
-	bool LoadFile( const std::string& filePath );
+
+	cocos2d::Sprite3D* getSprite3D( int number );
+	cocos2d::Sprite3D* getSprite3D( const std::string& fileName );
 
 private:
 	FileLoadManager();

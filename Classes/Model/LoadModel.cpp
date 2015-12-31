@@ -7,36 +7,32 @@ USING_NS_CC;
 USING_NS_C3E;
 USING_NS_STD;
 
-class LoadModel::Private
-{
-public:
-	map<string,Sprite3D*> _modelData;
-};
-
 LoadModel::LoadModel()
 {
-	p = new Private();
 }
 
 LoadModel::~LoadModel()
 {
-	delete p;
 }
 
-bool	LoadModel::loadModelData( const string& filePath )
+Sprite3D* LoadModel::loadModelData( const string& filePath )
 {
 	string str = MyLibrary::StringUtility::getFileName( filePath );
 	Sprite3D* model = Sprite3D::create( filePath );
-	p->_modelData[str] = model;
-	return true;
+	return model;
 }
 
-Sprite3D* LoadModel::getModelData( int number )
+Sprite3D* LoadModel::loadModelData( const string& filePath, const string& extension )
 {
-	return nullptr;
-}
+	Sprite3D* sprite3D = nullptr;
 
-Sprite3D* LoadModel::getModelData( const string& fileName )
-{
-	return p->_modelData[fileName];
+	if( extension == ".fbx" )
+	{
+	}
+	else if( extension == ".c3b" || extension == ".c3t" || extension == ".obj" )
+	{
+		sprite3D = Sprite3D::create( filePath );
+	}
+
+	return sprite3D;
 }

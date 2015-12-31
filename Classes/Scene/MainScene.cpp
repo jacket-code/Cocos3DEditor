@@ -28,16 +28,11 @@ bool	MainScene::init( void )
 {
 	if( !Layer::init() ) { return false; }
 
-	auto director = Director::getInstance();
-	auto glView = dynamic_cast<GLViewImpl*>(director->getOpenGLView());
-
-	if( glView != nullptr )
-	{
-		glView->setFileDropCallback( CC_CALLBACK_2( MainScene::fileDropCallback, this ));
-	}
-
 	_inputLayer = InputLayer::create();
 	addChild( _inputLayer );
+
+	_modelArray.clear();
+	_selectModel = nullptr;
 
 	scheduleUpdate();
 
@@ -46,6 +41,9 @@ bool	MainScene::init( void )
 
 void	MainScene::update( float delta )
 {
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	/*
 	if( _inputLayer->isKeyboradPushDown( KEY_CODE::KEY_ENTER ) == true ) 
 	{
 		log( "enter push" );
@@ -53,24 +51,40 @@ void	MainScene::update( float delta )
 
 	if( _inputLayer->isKeyboradPushDown( KEY_CODE::KEY_ESCAPE ) == true ) 
 	{
-		log( "esc push" );
+		log( "escape push" );
 	}
-}
+*/
 
-void	MainScene::fileDropCallback( int count, const char** paths )
-{
-	auto loadManager = FileLoadManager::getInstance();
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-
-	for( int i = 0; i < count; i++ )
+	Sprite3D* sprite = FileLoadManager::getInstance()->getSprite3D( _modelArray.size() );
+	if( sprite != nullptr )
 	{
-		loadManager->LoadFile( paths[i] );
-		Sprite3D* model = LoadModel::getInstance()->getModelData( MyLibrary::StringUtility::getFileName( paths[i] ));
-		if( model == nullptr )
+		sprite->setPosition( visibleSize.width * 0.5f, visibleSize.height * 0.5f );
+		sprite->setScale( 300.0f );
+		addChild( sprite );
+		_modelArray.pushBack( sprite );
+	}
+
+	
+	if( _selectModel != nullptr )
+	{
+		_selectModel->setScale( _selectModel->getScale() + _inputLayer->getMouseScroll() * 2.0f );
+		_selectModel->setPosition( CCPoint( _inputLayer->getMousePosition().x, _inputLayer->getMousePosition().y - (_selectModel->getContentSize().height * _selectModel->getScale()) * 0.5f ));
+	}
+
+	if( _inputLayer->isMousePush( InputLayer::MouseFlags::LEFT_PUSH_FlAG ) == true && _selectModel == nullptr)
+	{
+		for( int i = 0; i < (int)_modelArray.size(); i++ )
 		{
-			continue;
+			auto rect = _modelArray.at( i )->getBoundingBox();
+			if( rect.containsPoint( _inputLayer->getMousePosition() ) == true )
+			{
+				log( "Model Push" );
+				_selectModel = _modelArray.at( i );
+			}
 		}
-		model->setPosition( visibleSize.width * 0.5f, visibleSize.height * 0.5f );
-		addChild( model );
+	}
+	else
+	{
+		_selectModel = nullptr;
 	}
 }
